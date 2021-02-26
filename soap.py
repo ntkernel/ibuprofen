@@ -10,7 +10,9 @@ async def fetch(session, soap_url, action, param):
         'Cookie': 'userguid=ffffffffffffffffffffffffffffffff;username=paduser;usergroupguid=ffffffffffffffffffffffffffffffff',
         'Accept-Encoding': 'gzip'
     }, data=param_to_request_body(action, param)) as response:
-        return await response.text()
+        x = await response.text()
+        #print(x)
+        return x
 
 async def request_for_text(session, soap_url, action, param):
     return ET.fromstring(await fetch(session, soap_url, action, param))[1][0][0].text

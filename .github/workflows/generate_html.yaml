@@ -19,7 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Fetch data and generate
-      run: python user.py ${{ secrets.ARGS }}
+      run: ./user.py ${{ secrets.ARGS }}
     - name: Upload HTML
       uses: actions/upload-artifact@v2
       with:
